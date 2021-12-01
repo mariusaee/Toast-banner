@@ -42,13 +42,20 @@ struct ToastModifier: ViewModifier {
                     .shadow(radius: 5)
                 }
                 .padding()
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                        withAnimation {
+                            isShowing = false
+                        }
+                    }
+                }
             }
         }
     }
 }
 
 extension View {
-    func toast(isShowing: Binding<Bool>, duration: TimeInterval = 3) -> some View {
+    func toast(isShowing: Binding<Bool>, duration: TimeInterval = 1) -> some View {
         modifier(ToastModifier(isShowing: isShowing, duration: duration))
     }
 }
