@@ -37,6 +37,12 @@ struct ToastModifier: ViewModifier {
     }
 }
 
+extension View {
+    func toast(isShowing: Binding<Bool>, duration: TimeInterval = 3) -> some View {
+        modifier(ToastModifier())
+    }
+}
+
 struct ToastView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
