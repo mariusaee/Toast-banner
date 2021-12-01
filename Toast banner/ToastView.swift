@@ -11,6 +11,15 @@ struct ToastView: View {
     var body: some View {
         ZStack {
             Text("Hello, World!")
+            
+        }
+    }
+}
+
+struct ToastModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        ZStack {
+            content
             VStack {
                 Spacer()
                 HStack {
