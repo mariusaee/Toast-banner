@@ -7,20 +7,20 @@
 
 import SwiftUI
 
+// MARK: - ToastView
 struct ToastView: View {
     @State private var isShowing = false
     
     var body: some View {
-        ZStack {
-            Text("Hello, World!")
-                .toast(isShowing: $isShowing)
-                .onTapGesture {
-                    isShowing.toggle()
-                }
-        }
+        Text("Hello, World!")
+            .toast(isShowing: $isShowing)
+            .onTapGesture {
+                isShowing.toggle()
+            }
     }
 }
 
+// MARK: - Custom Modifier
 struct ToastModifier: ViewModifier {
     @Binding var isShowing: Bool
     let duration: TimeInterval
@@ -33,6 +33,7 @@ struct ToastModifier: ViewModifier {
                     Spacer()
                     HStack {
                         Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
                         Text("Tim Cook liked your post")
                         Spacer()
                     }
@@ -60,6 +61,7 @@ extension View {
     }
 }
 
+// MARK: - Preview
 struct ToastView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
