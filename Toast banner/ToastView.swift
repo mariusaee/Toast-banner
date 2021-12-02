@@ -12,7 +12,7 @@ struct ToastView: View {
     @State private var isShowing = false
     
     var body: some View {
-        Text("Hello, World!")
+        Text("Button")
             .toast(isShowing: $isShowing)
             .onTapGesture {
                 isShowing.toggle()
@@ -66,8 +66,6 @@ struct ToastView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ToastView()
-            ToastView()
-                .previewDevice("iPhone SE (1st generation)")
         }
     }
 }
